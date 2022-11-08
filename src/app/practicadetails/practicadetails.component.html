@@ -1,0 +1,47 @@
+<div class="container">
+    <br>
+    <nav>
+        <div class="nav-wrapper blue-grey">
+          <div class="col s12">
+            <a routerLink="/" class="breadcrumb">Home</a>
+            <a routerLink="/portafolios" class="breadcrumb">Portafolios</a>
+            <a routerLink="/portafolios/practicas" class="breadcrumb">Practicas</a>
+            <span class="breadcrumb">{{nombre}}</span>
+          </div>
+        </div>
+      </nav> 
+      <br>
+
+      <div class="row">
+        <div class="col s12">
+            <h4 class="center-align">{{nombre}}</h4>
+         </div>
+         
+         <div class="col s12">
+           
+               <p>Descripción: {{ descripcion }}</p> 
+               <p>Status: {{terminado}}</p>
+               <p>Año: {{anio}}</p>
+             
+         </div>
+         <div class="col-12">
+            <img class="materialboxed" width="650" src="../assets/images/practicas/{{imagen}}">
+        
+          </div>
+
+          <div class="col-s12"><h5 class="header">Tecnologias usadas</h5></div>
+          <div class="col-12"> 
+            <blockquote>
+              <ul>
+                <li *ngFor="let tec of tecnologias"> &#8226; {{tec}}</li>
+              </ul> 
+            </blockquote>
+          </div>
+      </div>
+      
+
+
+      
+
+
+</div>

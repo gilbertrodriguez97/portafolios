@@ -1,0 +1,89 @@
+.icon-yii {
+    background: url('../../assets/images/icons/yii-framework.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-js {
+    background: url('../../assets/images/icons/javascript.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-django {
+    background: url('../../assets/images/icons/django.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-mariadb {
+    background: url('../../assets/images/icons/mariadb.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-ionic {
+    background: url('../../assets/images/icons/ionic.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-nginx {
+    background: url('../../assets/images/icons/nginx.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-jquery {
+    background: url('../../assets/images/icons/jquery.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-firebase {
+    background: url('../../assets/images/icons/firebase.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  .icon-materialize {
+    background: url('../../assets/images/icons/materialize.png');
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }

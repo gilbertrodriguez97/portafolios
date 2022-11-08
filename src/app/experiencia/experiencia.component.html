@@ -1,0 +1,24 @@
+<div class="container">
+<br>
+    <nav>
+        <div class="nav-wrapper blue-grey">
+          <div class="col s12">
+            <a routerLink="/" class="breadcrumb">Home</a>
+            <span class="breadcrumb">Experiencia</span>
+          </div>
+        </div>
+      </nav>
+
+    <ul class="collapsible expandable">
+        <li class="collection-item avatar" *ngFor="let exp of ArrayExperiencia">
+            <div class="collapsible-header"> <i class="material-icons circle">keyboard_arrow_right</i>
+                <span class="title"><b>{{exp.titulo}}</b> <br> {{exp.subtitulo}}</span>
+            </div>
+            <div class="collapsible-body"><span *ngFor="let act of exp.tareas"> &#8226; {{act}}.<br></span></div>
+           
+        </li>
+    </ul>
+
+   
+                
+</div>
