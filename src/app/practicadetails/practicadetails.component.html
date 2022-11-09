@@ -14,23 +14,23 @@
 
       <div class="row">
         <div class="col s12">
-            <h4 class="center-align">{{nombre}}</h4>
+            <h5 class="center-align">{{nombre}}</h5>
          </div>
          
          <div class="col s12">
            
-               <p>Descripción: {{ descripcion }}</p> 
-               <p>Status: {{terminado}}</p>
-               <p>Año: {{anio}}</p>
+               <p> <b>Descripción:</b>  {{ descripcion }} <br>
+               <b> Status: </b> {{terminado}} <br>
+              <b> Año: </b> {{anio}}</p>
              
          </div>
-         <div class="col-12">
-            <img class="materialboxed" width="650" src="../assets/images/practicas/{{imagen}}">
+         <div class="content-center col s12">
+            <img class="materialboxed responsive-img" width="600" src="{{imagen}}">
         
           </div>
 
-          <div class="col-s12"><h5 class="header">Tecnologias usadas</h5></div>
-          <div class="col-12"> 
+          <div class="col s12"><h5 class="header">Tecnologias usadas</h5></div>
+          <div class="col 12"> 
             <blockquote>
               <ul>
                 <li *ngFor="let tec of tecnologias"> &#8226; {{tec}}</li>

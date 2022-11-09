@@ -14,13 +14,13 @@
         <div class="col s12 m6 tarjeta" *ngFor="let pract of arrayPracticas">
           <div class="card">
             <div class="card-image">
-              <img src="../assets/images/practicas/{{pract.imagen}}">
+              <img width="260" height="230" src="{{pract.imagen}}">
               
               <a class="btn-floating halfway-fab waves-effect waves-light red" routerLink="/portafolios/practica/{{pract.id}}"><i class="material-icons">remove_red_eye</i></a>
             </div>
             <div class="card-content">
-                <span class="card-title">{{pract.nombre}}</span>
-              <p>{{pract.descripcion}}</p>
+                <span class="card-title truncate">{{pract.nombre}}</span>
+              <p class="truncate">{{pract.descripcion}}</p>
             </div>
           </div>
         </div>

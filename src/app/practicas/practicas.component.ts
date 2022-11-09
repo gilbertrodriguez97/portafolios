@@ -16,7 +16,6 @@ export class PracticasComponent implements OnInit {
 
   ngOnInit(): void {
     this.practServices.getPracticas().subscribe(practicas => {
-      console.log(practicas);
       this.arrayPracticas = practicas;
     })
   }
