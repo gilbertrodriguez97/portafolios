@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PracticasInterface } from '../interface/practicas.interface';
-import { DbService } from '../services/db.service';
+import { CollectionService } from '../services/collection.service';
 
 @Component({
   selector: 'app-practicas',
@@ -10,7 +10,7 @@ import { DbService } from '../services/db.service';
 export class PracticasComponent implements OnInit {
 
   arrayPracticas: PracticasInterface[];
-  constructor(private practServices: DbService) { 
+  constructor(private practServices: CollectionService) { 
     this.arrayPracticas=[];
   }
 

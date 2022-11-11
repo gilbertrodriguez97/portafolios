@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { find, map } from 'rxjs';
 import { ProyectosInterface } from '../interface/proyectos.interface';
-import { DbService } from '../services/db.service';
+import { DocumentService } from '../services/document.service';
 
 declare var $: any;
 
@@ -21,7 +21,8 @@ export class ProyectodetailsComponent implements OnInit {
   anio: number;
   contribucion: string; 
   imagen:string;
-  constructor(private proyService: DbService, private route: ActivatedRoute) { 
+  url:string;
+  constructor(private route: ActivatedRoute, private practService: DocumentService) { 
     this.arrayProyecto = [];
     this.terminado = "";
     this.nombre = "";
@@ -30,6 +31,7 @@ export class ProyectodetailsComponent implements OnInit {
     this.anio=0;
     this.contribucion="";
     this.imagen="";
+    this.url="";
   }
    
   ngOnInit(): void {
@@ -38,30 +40,22 @@ export class ProyectodetailsComponent implements OnInit {
 
     const routeParams = this.route.snapshot.paramMap;
     const IdFromRoute = String(routeParams.get('id'));
-
-    this.proyService.getProyectos().subscribe(proyectos=>{
-      this.arrayProyecto = proyectos;
-      this.arrayProyecto.find(proyecto => proyecto.id === IdFromRoute);
-
-      this.nombre = this.arrayProyecto[0].nombre;
-     
-      if (this.arrayProyecto[0].terminado==true) {
-        this.terminado = "Terminado";
-      } else {
+    this.practService.getProyecto (IdFromRoute).subscribe(proyecto => {
+      console.log(proyecto);
+      this.nombre = proyecto.nombre;
+      this.descripcion = proyecto.descripcion;
+      this.tecnologias = proyecto.tecnologias;
+      this.anio = proyecto.anio;
+      if (proyecto.terminado == false) {
         this.terminado = "En desarrollo";
-      }
-      this.descripcion = this.arrayProyecto[0].descripcion;
-      this.tecnologias = this.arrayProyecto[0].tecnologias;
-      this.anio = this.arrayProyecto[0].anio;
-      if (this.arrayProyecto[0].contribucion == true) {
-        this.contribucion = "Contribución";
       } else {
-        this.contribucion = "Proyecto individual";
+        this.terminado = "Terminado";
       }
-      this.imagen = this.arrayProyecto[0].imagen;
-
+      this.imagen = proyecto.imagen;
+      this.url = proyecto.url;
     
     });
+
     
   }
 

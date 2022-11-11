@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { faTurkishLiraSign } from '@fortawesome/free-solid-svg-icons';
-import { PracticasInterface } from '../interface/practicas.interface';
-import { DbService } from '../services/db.service';
+import { DocumentService } from '../services/document.service';
+
+
+
 
 declare var $: any;
 
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class PracticadetailsComponent implements OnInit {
 
-  arrayPractica: PracticasInterface[];
+  id: string;
   nombre: string;
   descripcion: string;
   tecnologias: string[];
@@ -21,8 +22,10 @@ export class PracticadetailsComponent implements OnInit {
   terminado: string;
   imagen: string;
   url: string;
-  constructor(private practService: DbService, private route: ActivatedRoute) {
-    this.arrayPractica = [];
+
+  constructor(private route: ActivatedRoute, private practService: DocumentService) {
+
+    this.id = "";
     this.nombre="";
     this.descripcion="";
     this.tecnologias=[];
@@ -34,25 +37,28 @@ export class PracticadetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    $('.materialboxed').materialbox();
+      $('.materialboxed').materialbox();
 
-    const routeParams = this.route.snapshot.paramMap;
-    const IdFromRoute = String(routeParams.get('id'));
-      this.practService.getPracticas().subscribe(practicas => {
-      this.arrayPractica = practicas;
-      this.arrayPractica.find(practica => practica.id == IdFromRoute);
-      this.nombre = this.arrayPractica[0].nombre;
-      this.descripcion = this.arrayPractica[0].descripcion;
-      this.tecnologias = this.arrayPractica[0].tecnologias;
-      this.anio = this.arrayPractica[0].anio;
-      if (this.arrayPractica[0].terminado == true) {
-        this.terminado = "Terminado";
-      } else {
-        this.terminado = "En desarrollo";
-      }
-      this.imagen = this.arrayPractica[0].imagen;
-      this.url = this.arrayPractica[0].url;
-    })
+      const routeParams = this.route.snapshot.paramMap;
+      const IdFromRoute = String(routeParams.get('id'));
+     this.practService.getPractica(IdFromRoute).subscribe(practica => {
+      
+            this.nombre = practica.nombre;
+            this.descripcion = practica.descripcion;
+            this.tecnologias = practica.tecnologias;
+            this.anio = practica.anio;
+            if (practica.terminado == false) {
+              this.terminado = "En desarrollo";
+            } else {
+              this.terminado = "Terminado";
+            }
+            this.imagen = practica.imagen;
+            this.url = practica.url;
+          
+          });
+     
+
+    
   }
 
 }

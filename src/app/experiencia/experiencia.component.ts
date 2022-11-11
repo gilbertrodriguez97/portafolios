@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienciaInterface } from '../interface/experiencia.interface';
-import { DbService } from '../services/db.service';
+import { CollectionService } from '../services/collection.service';
 
 declare var $: any;
 
@@ -12,7 +12,7 @@ declare var $: any;
 export class ExperienciaComponent implements OnInit {
 ArrayExperiencia: ExperienciaInterface[]; //Inicializando los datos experados de la interfacce de Exp.
 
-  constructor(private expServices: DbService) {
+  constructor(private expServices: CollectionService) {
     this.ArrayExperiencia = [];
    }
 

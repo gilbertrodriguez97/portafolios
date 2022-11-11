@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosInterface } from '../interface/proyectos.interface';
-import { DbService } from '../services/db.service';
+import { CollectionService } from '../services/collection.service';
 
 @Component({
   selector: 'app-proyecto',
@@ -9,7 +9,7 @@ import { DbService } from '../services/db.service';
 })
 export class ProyectoComponent implements OnInit {
   arrayProyectos: ProyectosInterface[];
-  constructor(private proyServices: DbService) { 
+  constructor(private proyServices: CollectionService) { 
     this.arrayProyectos=[];
   }
 

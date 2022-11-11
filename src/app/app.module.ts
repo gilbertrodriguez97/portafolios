@@ -36,6 +36,7 @@ import { ProyectodetailsComponent } from './proyectodetails/proyectodetails.comp
 import { PracticasComponent } from './practicas/practicas.component';
 import { PracticadetailsComponent } from './practicadetails/practicadetails.component';
 import { TecnologiasComponent } from './tecnologias/tecnologias.component';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -57,7 +58,9 @@ import { TecnologiasComponent } from './tecnologias/tecnologias.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

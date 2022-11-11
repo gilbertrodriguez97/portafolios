@@ -8,7 +8,7 @@ import { ProyectosInterface } from '../interface/proyectos.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class DbService {
+export class CollectionService {
 
   constructor(private firestore: Firestore) { }
 
@@ -26,4 +26,6 @@ export class DbService {
     const practRef = collection(this.firestore, 'practicas');
     return collectionData(practRef, {idField: 'id'}) as Observable<PracticasInterface[]>;
   }
+
+ 
 }
