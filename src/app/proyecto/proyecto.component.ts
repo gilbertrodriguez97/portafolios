@@ -9,13 +9,22 @@ import { CollectionService } from '../services/collection.service';
 })
 export class ProyectoComponent implements OnInit {
   arrayProyectos: ProyectosInterface[];
+  loader: boolean;
   constructor(private proyServices: CollectionService) { 
     this.arrayProyectos=[];
+    this.loader = true;
   }
 
   ngOnInit(): void {
     this.proyServices.getProyectos().subscribe(
-      proyecto=>{ this.arrayProyectos = proyecto }
+      proyecto=>{
+        this.arrayProyectos = proyecto
+        if (!this.arrayProyectos) {
+          alert("Error al cargar");
+        } else {
+          this.loader = false;
+        }
+      }
     );
   }
 

@@ -8,7 +8,13 @@
           </div>
         </div>
       </nav>
-
+    
+    <div class="loading" *ngIf="loader">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+    
     <ul class="collapsible expandable">
         <li class="collection-item avatar" *ngFor="let exp of ArrayExperiencia">
             <div class="collapsible-header"> <i class="material-icons circle">keyboard_arrow_right</i>

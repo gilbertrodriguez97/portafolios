@@ -22,6 +22,7 @@ export class ProyectodetailsComponent implements OnInit {
   contribucion: string; 
   imagen:string;
   url:string;
+  loader: boolean;
   constructor(private route: ActivatedRoute, private practService: DocumentService) { 
     this.arrayProyecto = [];
     this.terminado = "";
@@ -32,6 +33,7 @@ export class ProyectodetailsComponent implements OnInit {
     this.contribucion="";
     this.imagen="";
     this.url="";
+    this.loader = true;
   }
    
   ngOnInit(): void {
@@ -41,7 +43,7 @@ export class ProyectodetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const IdFromRoute = String(routeParams.get('id'));
     this.practService.getProyecto (IdFromRoute).subscribe(proyecto => {
-      console.log(proyecto);
+
       this.nombre = proyecto.nombre;
       this.descripcion = proyecto.descripcion;
       this.tecnologias = proyecto.tecnologias;
@@ -53,7 +55,11 @@ export class ProyectodetailsComponent implements OnInit {
       }
       this.imagen = proyecto.imagen;
       this.url = proyecto.url;
-    
+      if (!proyecto) {
+        alert("Error al cargar");
+      } else {
+        this.loader = false;
+      }
     });
 
     

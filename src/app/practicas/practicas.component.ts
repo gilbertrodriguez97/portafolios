@@ -10,13 +10,20 @@ import { CollectionService } from '../services/collection.service';
 export class PracticasComponent implements OnInit {
 
   arrayPracticas: PracticasInterface[];
+  loader: boolean;
   constructor(private practServices: CollectionService) { 
     this.arrayPracticas=[];
+    this.loader = true;
   }
 
   ngOnInit(): void {
     this.practServices.getPracticas().subscribe(practicas => {
       this.arrayPracticas = practicas;
+      if (!this.arrayPracticas) {
+        alert("Error al cargar");
+      } else {
+        this.loader = false;
+      }
     })
   }
 

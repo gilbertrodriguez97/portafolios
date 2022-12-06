@@ -22,7 +22,7 @@ export class PracticadetailsComponent implements OnInit {
   terminado: string;
   imagen: string;
   url: string;
-
+  loader: boolean;
   constructor(private route: ActivatedRoute, private practService: DocumentService) {
 
     this.id = "";
@@ -33,6 +33,7 @@ export class PracticadetailsComponent implements OnInit {
     this.terminado="";
     this.imagen = "";
     this.url = "";
+    this.loader = true;
    }
 
   ngOnInit(): void {
@@ -54,7 +55,11 @@ export class PracticadetailsComponent implements OnInit {
             }
             this.imagen = practica.imagen;
             this.url = practica.url;
-          
+            if (!practica) {
+              alert("Error al cargar");
+            } else {
+              this.loader = false;
+            }
           });
      
 

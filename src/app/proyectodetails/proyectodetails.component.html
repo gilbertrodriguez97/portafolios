@@ -14,34 +14,42 @@
     <br>
 
    <div class="row">
-        <div class="col-s12">
-           <h5 class="center-align">{{nombre}}</h5>
+      <div class="loading" *ngIf="loader">
+        <div class="progress">
+          <div class="indeterminate"></div>
         </div>
-        
-        <div class="col-s12">
-          
-              <p> <b> Descripción: </b> {{ descripcion }} <br>
-              <b> Status: </b> {{terminado}} <br>
-              <b> Año: </b> {{anio}} <br>
-              <b> Tipo: </b> {{contribucion}}</p> 
-        </div>
-        
-      <div class="content-center col s12">
-          <img class="materialboxed responsive-img" width="600" src="{{imagen}}">
       </div>
-
-   
-       
-        <br>
-        <div class="col-s12"><h5 class="header">Tecnologias usadas</h5></div>
-      
-        <div class="col-12"> 
-          <blockquote>
-            <ul>
-              <li *ngFor="let tec of tecnologias"> &#8226; {{tec}}</li>
-            </ul> 
-          </blockquote>
+      <div class="content" *ngIf="!loader">
+        <div class="col-s12">
+          <h5 class="center-align">{{nombre}}</h5>
         </div>
+       
+        <div class="col-s12">
+             <p> <b> Descripción: </b> {{ descripcion }} <br>
+             <b> Status: </b> {{terminado}} <br>
+             <b> Año: </b> {{anio}} <br>
+             <b> Tipo: </b> {{contribucion}}</p> 
+       </div>
+       
+     <div class="content-center col s12">
+         <img class="materialboxed responsive-img" width="600" src="{{imagen}}">
+     </div>    
+       <br>
+       <div class="col-s12"><h5 class="header">Tecnologias usadas</h5></div>
+          <div class="col-12"> 
+            <blockquote>
+              <ul>
+                <li *ngFor="let tec of tecnologias"> &#8226; {{tec}}</li>
+              </ul> 
+            </blockquote>
+          </div>
+          <div class="col s12"><h5 class="header">URL</h5></div>
+          <div class="col 12"> 
+            <blockquote>
+              <ul><li> &#8226; <a href="{{url}}" target="_blank" rel="noopener noreferrer">Enlace al proyecto</a></li></ul> 
+            </blockquote>
+          </div>
+      </div>      
     </div>
 </div>
 

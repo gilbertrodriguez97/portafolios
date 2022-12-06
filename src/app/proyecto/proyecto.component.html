@@ -11,6 +11,11 @@
     </nav> 
     <br>
     <div class="row">
+      <div class="loading" *ngIf="loader">
+        <div class="progress">
+          <div class="indeterminate"></div>
+        </div>
+      </div>
         <div class="col s12 m6" *ngFor="let proy of arrayProyectos">
           <div class="card">
             <div class="card-image">

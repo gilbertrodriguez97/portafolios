@@ -11,9 +11,11 @@ declare var $: any;
 })
 export class ExperienciaComponent implements OnInit {
 ArrayExperiencia: ExperienciaInterface[]; //Inicializando los datos experados de la interfacce de Exp.
+loader: boolean;
 
   constructor(private expServices: CollectionService) {
     this.ArrayExperiencia = [];
+    this.loader = true;
    }
 
   ngOnInit(): void {
@@ -21,6 +23,11 @@ ArrayExperiencia: ExperienciaInterface[]; //Inicializando los datos experados de
    
     this.expServices.getExperiencia().subscribe(experiencia => {
         this.ArrayExperiencia = experiencia;
+        if (!this.loader) {
+          alert("Error al cargar");
+        } else {
+          this.loader = false;
+        }
     });
   }
 
