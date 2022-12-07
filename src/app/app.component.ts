@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
     $( ".elem-menu" ).click(function() {
       $('.sidenav').sidenav('close');
     });
+
+   
+    
   }
   year: number = Date.now();
 }

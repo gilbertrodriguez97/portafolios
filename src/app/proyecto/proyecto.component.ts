@@ -20,7 +20,7 @@ export class ProyectoComponent implements OnInit {
       proyecto=>{
         this.arrayProyectos = proyecto
         if (!this.arrayProyectos) {
-          alert("Error al cargar");
+          
         } else {
           this.loader = false;
         }

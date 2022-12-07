@@ -20,7 +20,7 @@ export class PracticasComponent implements OnInit {
     this.practServices.getPracticas().subscribe(practicas => {
       this.arrayPracticas = practicas;
       if (!this.arrayPracticas) {
-        alert("Error al cargar");
+        
       } else {
         this.loader = false;
       }

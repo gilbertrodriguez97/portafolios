@@ -56,7 +56,7 @@ export class PracticadetailsComponent implements OnInit {
             this.imagen = practica.imagen;
             this.url = practica.url;
             if (!practica) {
-              alert("Error al cargar");
+              
             } else {
               this.loader = false;
             }

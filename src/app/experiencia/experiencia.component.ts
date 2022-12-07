@@ -23,7 +23,7 @@ loader: boolean;
    
     this.expServices.getExperiencia().subscribe(experiencia => {
         this.ArrayExperiencia = experiencia;
-        if (!this.loader) {
+        if (!this.ArrayExperiencia) {
           alert("Error al cargar");
         } else {
           this.loader = false;

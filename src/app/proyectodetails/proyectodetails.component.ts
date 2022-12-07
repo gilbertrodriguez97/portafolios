@@ -56,7 +56,7 @@ export class ProyectodetailsComponent implements OnInit {
       this.imagen = proyecto.imagen;
       this.url = proyecto.url;
       if (!proyecto) {
-        alert("Error al cargar");
+       
       } else {
         this.loader = false;
       }
